@@ -14,6 +14,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import Footer from "./Footer";
 
 const MobileNav = ({ user }: MobileNavProps) => {
   const pathname = usePathname();
@@ -61,21 +62,23 @@ const MobileNav = ({ user }: MobileNavProps) => {
                             "bg-bank-gradient": isActive,
                           })}
                         >
-                          
-                            <Image
-                              src={item.imgURL}
-                              alt={item.label}
-                              width={20}
-                              height={20}
-                              className={cn({
-                                "brightness-[3] invert-0": isActive,
-                              })}
-                            />
-                          
-                          <p
-                            className={cn("text-16 font-semibold text-black-2", {
-                              "text-white": isActive,
+                          <Image
+                            src={item.imgURL}
+                            alt={item.label}
+                            width={20}
+                            height={20}
+                            className={cn({
+                              "brightness-[3] invert-0": isActive,
                             })}
+                          />
+
+                          <p
+                            className={cn(
+                              "text-16 font-semibold text-black-2",
+                              {
+                                "text-white": isActive,
+                              }
+                            )}
                           >
                             {item.label}
                           </p>
@@ -86,7 +89,7 @@ const MobileNav = ({ user }: MobileNavProps) => {
                 </nav>
               </SheetClose>
             </div>
-            USER
+            <Footer user={user} type="mobile"/>
           </nav>
         </SheetContent>
       </Sheet>
